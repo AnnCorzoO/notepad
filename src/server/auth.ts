@@ -9,6 +9,7 @@ import GoogleProvider from "next-auth/providers/google";
 
 import { env } from "~/env.mjs";
 import { prisma } from "~/server/db";
+import GithubProvider from "next-auth/providers/github";
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -52,6 +53,12 @@ export const authOptions: NextAuthOptions = {
       clientId: env.GOOGLE_CLIENT_ID,
       clientSecret: env.GOOGLE_CLIENT_SECRET,
     }),
+
+    GithubProvider({
+      clientId: "6e42d692ad2cd861f275",
+      clientSecret: "b74d2612291dc69d0e8b05133b994ba1c17ce589",
+    }),
+    
     /**
      * ...add more providers here.
      *
