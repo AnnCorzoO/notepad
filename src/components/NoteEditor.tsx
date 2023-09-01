@@ -13,13 +13,13 @@ export const NoteEditor = ({
   const [title, setTitle] = useState<string>("");
 
   return (
-    <div className="card mt-5 border border-gray-200 bg-base-100 shadow-xl">
+    <div className="card mt-5 border border-gray-200 shadow-xl">
       <div className="card-body">
         <h2 className="card-title">
           <input
             type="text"
             placeholder="Note title"
-            className="input input-primary input-lg w-full font-bold"
+            className="input-impact input input-lg w-full font-bold"
             value={title}
             onChange={(e) => setTitle(e.currentTarget.value)}
           />
