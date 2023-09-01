@@ -55,8 +55,8 @@ export const authOptions: NextAuthOptions = {
     }),
 
     GithubProvider({
-      clientId: "6e42d692ad2cd861f275",
-      clientSecret: "b74d2612291dc69d0e8b05133b994ba1c17ce589",
+      clientId: env.GITHUB_CLIENT_ID,
+      clientSecret: env.GITHUB_CLIENT_SECRE,
     }),
     
     /**
