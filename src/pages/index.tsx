@@ -49,6 +49,12 @@ const Content: React.FC = () => {
     },
   });
 
+  const deleteTopic = api.topic.delete.useMutation({
+    onSuccess: () => {
+      void refetchTopics();
+    },
+  });
+
   const { data: notes, refetch: refetchNotes } = api.note.getAll.useQuery(
     {
       topicId: selectedTopic?.id ?? "",
@@ -73,6 +79,7 @@ const Content: React.FC = () => {
   return (
     <div className="mx-5 mt-5 grid grid-cols-4 gap-2">
       <div className="px-2">
+        <div className="text-size-2 font-extrabold text-primary"> Folders </div>
         <ul className="menu rounded-box w-56 bg-base-100 p-2">
           {topics?.map((topic) => (
             <li key={topic.id}>
@@ -85,13 +92,19 @@ const Content: React.FC = () => {
               >
                 {topic.title}
               </a>
+              <button
+                className="w-18 btn btn-warning btn-sm justify-items-end text-center"
+                onClick={() => void deleteTopic.mutate({ id: topic.id })}
+              >
+                Delete
+              </button>
             </li>
           ))}
         </ul>
         <div className="divider"></div>
         <input
           type="text"
-          placeholder="New Topic"
+          placeholder="New Notes Folder"
           className="input input-bordered input-sm w-full"
           onKeyDown={(e) => {
             if (e.key === "Enter") {
@@ -104,6 +117,7 @@ const Content: React.FC = () => {
         />
       </div>
       <div className="col-span-3">
+        <div className="text-2xl text-cyan-950"> Notes </div>
         <div>
           {notes?.map((note) => (
             <div key={note.id} className="mt-5">

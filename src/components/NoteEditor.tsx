@@ -34,10 +34,10 @@ export const NoteEditor = ({
             markdown({ base: markdownLanguage, codeLanguages: languages }),
           ]}
           onChange={(value) => setCode(value)}
-          className="border border-gray-300"
+          className="flex border border-gray-300"
         />
       </div>
-      <div className="card-actions justify-end">
+      <div className="card-actions mb-2 justify-center">
         <button
           onClick={() => {
             onSave({
@@ -47,7 +47,7 @@ export const NoteEditor = ({
             setCode("");
             setTitle("");
           }}
-          className="btn btn-primary"
+          className="btn btn-primary btn-sm"
           disabled={title.trim().length === 0 || code.trim().length === 0}
         >
           Save
