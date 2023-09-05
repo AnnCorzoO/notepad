@@ -76,7 +76,6 @@ const Content: React.FC = () => {
       void refetchNotes();
     },
   });
-  const [isExpanded, setIsExpanded] = useState<boolean>(true);
 
   return (
     <div className="mx-5 mt-5 grid grid-cols-4 gap-2">
@@ -120,7 +119,7 @@ const Content: React.FC = () => {
 <div className="py-2">
         <div className="alert">
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-info shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-  <span>Create a "Folder" first in order to create a note.</span>
+  <span>Create a Folder first in order to create a note.</span>
 </div>
 </div>
 <div className="py-2">
