@@ -157,8 +157,8 @@ const Content: React.FC = () => {
       </div>
       <div className="col-span-3 collapse">
           <input type="checkbox" className="peer"></input>
-        <div className="text-2xl text-black collapse-title"> Notes </div>
-        <div className="collapse-content bg-primary">
+        <div className="text-2xl text-black collapse-title flex"> Notes </div>
+        <div className="collapse-content bg-primary flex-col ">
           {notes?.map((note) => (
             <div key={note.id} className="mt-5">
               <NoteCard
