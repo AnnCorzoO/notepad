@@ -13,7 +13,7 @@ export const NoteEditor = ({
   const [title, setTitle] = useState<string>("");
 
   return (
-    <div className="card mt-5 border border-gray-200 shadow-xl">
+    <div className="card mt-5 border border-gray-200 shadow-xl flex">
       <div className="card-body">
         <h2 className="card-title">
           <input

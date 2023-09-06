@@ -120,7 +120,7 @@ const Content: React.FC = () => {
             </li>
           ))}
         </ul>
-        </div>
+          </div>
         </div>
         <div className="divider"></div>
         <input
@@ -166,22 +166,19 @@ const Content: React.FC = () => {
                 onDelete={() => void deleteNote.mutate({ id: note.id })}
               />
             </div>
+            
           ))}
-        </div>
-
-        <NoteEditor
-          onSave={({ title, content }) => {
-            void createNote.mutate({
-              title,
-              content,
-              topicId: selectedTopic?.id ?? "",
-            });
+          <NoteEditor
+      onSave={({ title, content }) => {
+         void createNote.mutate({
+            title,
+            content,
+            topicId: selectedTopic?.id ?? "",
+          });
           }}
         />
-
-        
+        </div>
       </div>
-    </div>    
-    
+    </div>      
   );
 };
