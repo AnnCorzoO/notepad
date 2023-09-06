@@ -80,8 +80,11 @@ const Content: React.FC = () => {
   return (
     <div className="mx-5 mt-5 grid grid-cols-4 gap-2">
       <div className="px-2">
-        <div className="text-size-2 font-extrabold text-primary"> Folders </div>
-          <ul className="menu rounded-box w-56 bg-impact p-2 shadow-xl">
+        <div tabIndex={0} className="collapse bg-base-200">
+          <input type="checkbox" className="peer" />
+        <div className="text-size-2 font-extrabold text-black collapse-title bg-primary"> Folders </div>
+          <div className="collapse-content flex items-center bg-accent py-5">
+          <ul className="menu rounded-box max-w:sm bg-impact p-2 shadow-xl flex-row bg-base-100">
           {topics?.map((topic) => (
             <li key={topic.id}>
               <a
@@ -94,7 +97,7 @@ const Content: React.FC = () => {
                 {topic.title}
               </a>
               <button
-                className="btn btn-warning btn-sm w-16 justify-center text-center text-gray-50 font-extralight"
+                className="btn btn-warning btn-sm w-16 justify-center text-center text-gray-50 font-light flex"
                 onClick={() => void deleteTopic.mutate({ id: topic.id })}
               >
                 Delete
@@ -102,6 +105,8 @@ const Content: React.FC = () => {
             </li>
           ))}
         </ul>
+        </div>
+        </div>
         <div className="divider"></div>
         <input
           type="text"
@@ -136,7 +141,7 @@ const Content: React.FC = () => {
 </div>
       </div>
       <div className="col-span-3">
-        <div className="text-2xl text-primary"> Notes </div>
+        <div className="text-2xl text-black"> Notes </div>
         <div>
           {notes?.map((note) => (
             <div key={note.id} className="mt-5">
